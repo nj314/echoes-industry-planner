@@ -1,12 +1,14 @@
 import { PlanetaryResource, MineralName } from "./items";
 
+export type Inventory<T extends string> = Partial<Record<T, number>>;
+
 export type BlueprintDef = {
   isk: number; // base manufacturing cost
   time: number; // base manufacturing time, seconds
   outputQuantity: number;
   materials: {
-    Planetary: Partial<Record<PlanetaryResource, number>>;
-    Minerals: Partial<Record<MineralName, number>>;
+    Planetary: Inventory<PlanetaryResource>;
+    Mineral: Inventory<MineralName>;
   };
 };
 
@@ -21,5 +23,3 @@ export type ProductSubtype = {
   products: Record<string, BlueprintDef>;
   relevantSkills: Record<string, SkillDef>;
 };
-
-export type Inventory<T extends string> = Partial<Record<T, number>>;

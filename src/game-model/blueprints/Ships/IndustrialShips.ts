@@ -7,7 +7,7 @@ export const IndustrialShips: ProductSubtype = {
       time: 1000,
       outputQuantity: 1,
       materials: {
-        Minerals: {
+        Mineral: {
           Tritanium: 127280,
           Pyerite: 34598,
           Mexallon: 10355,

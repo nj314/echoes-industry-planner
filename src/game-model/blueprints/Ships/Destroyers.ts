@@ -7,7 +7,7 @@ export const Destroyers: ProductSubtype = {
       time: 1135,
       outputQuantity: 1,
       materials: {
-        Minerals: {
+        Mineral: {
           Tritanium: 81015,
           Pyerite: 19511,
           Mexallon: 7388,
