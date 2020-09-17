@@ -15,7 +15,9 @@ class MarketService {
   }
 
   constructor() {
-    this._prices = JSON.parse(localStorage[MarketService.LOCALSTORAGE_KEY]);
+    this._prices = JSON.parse(
+      localStorage[MarketService.LOCALSTORAGE_KEY] || "{}"
+    );
   }
 }
 

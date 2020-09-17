@@ -1,13 +1,14 @@
 import { MineralName, PlanetaryResource } from "../items";
-import * as Ships from "./Ships";
+import { Inventory, ProductSubtype } from "../types";
+import Ships from "./Ships";
 
 export type BillOfMaterials = {
-  Planetary: Partial<Record<PlanetaryResource, number>>;
-  Minerals: Partial<Record<MineralName, number>>;
+  Planetary: Inventory<PlanetaryResource>;
+  Minerals: Inventory<MineralName>;
 };
 
 export default {
+  Ships,
   Modules: {},
   Rigs: {},
-  Ships,
-};
+} as Record<string, Record<string, ProductSubtype>>;

@@ -20,6 +20,7 @@ export type SkillDef = {
 };
 
 export type ProductSubtype = {
+  displayName: string;
   products: Record<string, BlueprintDef>;
   relevantSkills: Record<string, SkillDef>;
 };

@@ -9,7 +9,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { css } from "@emotion/core";
 
-import NavMain from "./nav-main";
+import NavMain from "./NavMain";
 import { Container, Content, Footer } from "rsuite";
 
 const classes = {

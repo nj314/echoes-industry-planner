@@ -1,2 +1,8 @@
-export { Destroyers } from "./Destroyers";
-export { IndustrialShips } from "./IndustrialShips";
+import { ProductSubtype } from "../../types";
+import { Destroyers } from "./Destroyers";
+import { IndustrialShips } from "./IndustrialShips";
+
+export default { Destroyers, IndustrialShips } as Record<
+  string,
+  ProductSubtype
+>;

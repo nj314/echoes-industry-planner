@@ -1,6 +1,7 @@
 import { BlueprintDef, ProductSubtype } from "../../types";
 
 export const IndustrialShips: ProductSubtype = {
+  displayName: "Industrial Ships",
   products: {
     "Venture II": {
       isk: 300000,
