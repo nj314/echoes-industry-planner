@@ -7,6 +7,12 @@ const classes = {
   heading: css({
     textAlign: "center",
   }),
+  content: css({
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+    alignItems: "center",
+  }),
 };
 
 type Props = {
@@ -19,7 +25,7 @@ const Prompt = ({ children, header, label = "" }: Props) => (
   <Panel bordered shaded>
     {header || <h4 css={classes.heading}>{label}</h4>}
     <FancyDivider />
-    {children}
+    <div css={classes.content}>{children}</div>
   </Panel>
 );
 
