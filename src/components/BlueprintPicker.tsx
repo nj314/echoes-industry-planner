@@ -10,12 +10,12 @@ const classes = {
   root: css({}),
 };
 
-const getCascaderItem = (item: ProductSubtype): ItemDataType => ({
-  label: item.displayName,
-  value: item.displayName,
-  children: Object.entries(item.products).map(([label, bp]) => ({
+const getCascaderItem = (subType: ProductSubtype): ItemDataType => ({
+  label: subType.displayName,
+  value: subType.displayName,
+  children: Object.entries(subType.products).map(([label, bp]) => ({
     label,
-    value: bp,
+    value: { bp, subType },
   })),
 });
 
