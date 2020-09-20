@@ -9,13 +9,10 @@ const SalePricePrompt = () => {
   const [unitPrice, setUnitPrice] = useFieldState<number>("unitSalePrice");
   if (!name) return null;
   return (
-    <Prompt label={`How much do you expect one ${name} to sell for?`}>
-      <IskInput
-        min={0}
-        max={1000000000}
-        onChange={setUnitPrice}
-        value={unitPrice}
-      />
+    <Prompt
+      label={`What is the current market price of one completed ${name}?`}
+    >
+      <IskInput onChange={setUnitPrice} value={unitPrice} />
     </Prompt>
   );
 };
