@@ -3,19 +3,20 @@ import { css } from "@emotion/core";
 import { Cascader } from "rsuite";
 import { ItemDataType } from "rsuite/lib/@types/common";
 
-import { ProductSubtype } from "../game-model/types";
-import blueprintService from "../services/blueprint";
+import { ProductSubtype } from "../../../game-model/types";
+import blueprintService from "../../../services/blueprint";
+import useFieldState from "../../../utils/useFieldState";
 
 const classes = {
   root: css({}),
 };
 
-const getCascaderItem = (subType: ProductSubtype): ItemDataType => ({
-  label: subType.displayName,
-  value: subType.displayName,
-  children: Object.entries(subType.products).map(([label, bp]) => ({
+const getCascaderItem = (subtype: ProductSubtype): ItemDataType => ({
+  label: subtype.displayName,
+  value: subtype.displayName,
+  children: Object.entries(subtype.products).map(([label, definition]) => ({
     label,
-    value: { bp, subType },
+    value: { definition, name: label, subtype },
   })),
 });
 
@@ -30,25 +31,20 @@ const getCascaderData = (
 };
 
 type Props = {
-  onChange: (value: any, e: any) => void;
   placeholder?: string;
-  value: any;
 };
 
-const BlueprintPicker = ({
-  onChange,
-  placeholder = "Blueprints",
-  value,
-}: Props) => {
+const BlueprintPicker = ({ placeholder = "Blueprints" }: Props) => {
+  const [bp, setBp] = useFieldState("bp");
   const data = useMemo(() => getCascaderData(), []);
   return (
     <Cascader
-      inline
-      data={data}
       css={classes.root}
-      onChange={onChange}
+      data={data}
+      inline
+      onChange={setBp}
       placeholder={placeholder}
-      value={value}
+      value={bp}
     />
   );
 };

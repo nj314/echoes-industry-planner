@@ -22,7 +22,7 @@ type Props = {
 };
 
 const Prompt = ({ children, header, label = "" }: Props) => (
-  <Panel bordered shaded>
+  <Panel>
     {header || <h4 css={classes.heading}>{label}</h4>}
     <FancyDivider />
     <div css={classes.content}>{children}</div>
