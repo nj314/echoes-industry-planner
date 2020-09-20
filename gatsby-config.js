@@ -6,6 +6,7 @@ module.exports = {
   },
   pathPrefix: "/echoes-industry-planner",
   plugins: [
+    "gatsby-plugin-eslint",
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

@@ -1,0 +1,10 @@
+{
+  "globals": {
+    "__PATH_PREFIX__": true
+  },
+  "extends": "airbnb",
+  "rules": {
+    "quotes": "off"
+  },
+  "plugins": []
+}
