@@ -45,7 +45,11 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Form initialValues={initialValues} onSubmit={handleSubmit}>
+      <Form
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        subscription={{}}
+      >
         {() => (
           <Grid fluid>
             <Row>
