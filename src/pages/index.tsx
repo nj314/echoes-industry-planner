@@ -2,8 +2,8 @@ import React, { useCallback } from "react";
 import { Form, FormSpy } from "react-final-form";
 
 import { Col, Grid, Row } from "rsuite";
-import "rsuite/dist/styles/rsuite-default.css";
-// import "rsuite/dist/styles/rsuite-dark.css";
+// import "rsuite/dist/styles/rsuite-default.css";
+import "rsuite/dist/styles/rsuite-dark.css";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
