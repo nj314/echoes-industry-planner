@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from "react";
 import { Col, Input, InputGroup } from "rsuite";
 import { parseNumber } from "../utils";
+import useFormattedNumber from "./useFormattedNumber";
 
 type Props = {
   value: number;
@@ -8,18 +9,7 @@ type Props = {
 };
 
 const IskInput = ({ onChange, value }: Props) => {
-  const displayValue: string = useMemo(
-    () => value.toLocaleString(undefined, { maximumFractionDigits: 0 }),
-    [value]
-  );
-
-  const handleChange = useCallback(
-    valueString => {
-      onChange(parseNumber(valueString) || 0);
-    },
-    [onChange]
-  );
-
+  const [displayValue, handleChange] = useFormattedNumber(value, onChange);
   return (
     <Col xs={12} md={8}>
       <InputGroup>
