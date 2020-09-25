@@ -1,6 +1,6 @@
 import { Assets } from "./asset";
 
-export type Prices = Assets;
+export type Prices = Assets & { Blueprint: number };
 
 class MarketService {
   static LOCALSTORAGE_KEY = "MARKET_PRICES";

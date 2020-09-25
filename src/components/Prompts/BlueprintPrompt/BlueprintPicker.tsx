@@ -6,6 +6,7 @@ import { ItemDataType } from "rsuite/lib/@types/common";
 import { ProductSubtype } from "../../../game-model/types";
 import blueprintService from "../../../services/blueprint";
 import useFieldState from "../../../utils/useFieldState";
+import { BlueprintOption } from "../../../pages";
 
 const classes = {
   root: css({}),
@@ -16,7 +17,14 @@ const getCascaderItem = (subtype: ProductSubtype): ItemDataType => ({
   value: subtype.displayName,
   children: Object.entries(subtype.products).map(([label, definition]) => ({
     label,
-    value: { definition, name: label, subtype },
+    value: {
+      definition: {
+        ...definition,
+        materials: { Blueprint: 1, ...definition.materials },
+      },
+      name: label,
+      subtype: { ...subtype, products: {} },
+    } as BlueprintOption,
   })),
 });
 

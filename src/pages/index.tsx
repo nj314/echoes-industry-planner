@@ -13,6 +13,8 @@ import { SkillModel } from "../game-model/skills";
 import SkillPrompt from "../components/Prompts/SkillPrompt";
 import SalePricePrompt from "../components/Prompts/SalePricePrompt";
 import BlueprintPrompt from "../components/Prompts/BlueprintPrompt";
+import MaterialPrompt from "../components/Prompts/MaterialPrompt";
+import marketService, { Prices } from "../services/market";
 
 export type BlueprintOption = {
   name: string;
@@ -24,6 +26,7 @@ export type FormValues = {
   bp: BlueprintOption;
   skills?: SkillModel;
   unitSalePrice: number;
+  prices: Prices;
 };
 
 const initialValues: FormValues = {
@@ -34,6 +37,7 @@ const initialValues: FormValues = {
   },
   skills: undefined,
   unitSalePrice: 1000000,
+  prices: marketService.prices,
 };
 
 const IndexPage = () => {
@@ -65,6 +69,11 @@ const IndexPage = () => {
             <Row>
               <Col md={16} mdOffset={4} lg={12} lgOffset={6}>
                 <SalePricePrompt />
+              </Col>
+            </Row>
+            <Row>
+              <Col md={16} mdOffset={4} lg={12} lgOffset={6}>
+                <MaterialPrompt />
               </Col>
             </Row>
             <Row>

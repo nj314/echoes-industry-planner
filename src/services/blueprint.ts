@@ -2,7 +2,7 @@ import { BlueprintDef } from "../game-model/types";
 
 import blueprints from "../game-model/blueprints";
 import assetService, { Assets } from "./asset";
-import marketService from "./market";
+import marketService, { Prices } from "./market";
 import { mergeWith } from "lodash";
 
 class BlueprintService {
@@ -22,7 +22,7 @@ class BlueprintService {
     return blueprints;
   }
 
-  estimateCost(bp: BlueprintDef, excludeAssets = false) {
+  estimateCost(bp: BlueprintDef, prices: Prices, excludeAssets = false) {
     const assets = assetService.list();
     const materials = excludeAssets
       ? bp.materials
@@ -30,8 +30,7 @@ class BlueprintService {
           Math.max(0, quantityNeeded - quantityOwned)
         );
 
-    const { prices } = marketService;
-    let totalMaterialCost = 0;
+    let totalMaterialCost: number = prices.Blueprint;
     const itemizedMaterialCost = this.merge(
       materials,
       prices,

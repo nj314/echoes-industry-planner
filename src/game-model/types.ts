@@ -7,6 +7,8 @@ export type BlueprintDef = {
   time: number; // base manufacturing time, seconds
   outputQuantity: number;
   materials: {
+    /**Leave Blueprint number undefined - used to capture quantity = 1 */
+    Blueprint?: number;
     Planetary: Inventory<PlanetaryResource>;
     Mineral: Inventory<MineralName>;
   };
